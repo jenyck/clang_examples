@@ -4,7 +4,7 @@
 
 int substr(char* str1, char* str2, int** result);
 
-int main() {
+int main(void) {
     int str1_len;
     int str2_len;
     scanf("%i %i\n", &str1_len, &str2_len);
@@ -31,9 +31,8 @@ int substr(char* str1, char* str2, int** result) {
     char* str_ptr = str2;
 
     for (int i = 0; i <= str2_len - str1_len; i++) {
-        if (strncmp(str_ptr++, str1, str1_len) == 0) {
+        if (strncmp(str_ptr++, str1, str1_len) == 0)
             count++;
-        }
     }
 
     if (count == 0) {
@@ -45,9 +44,8 @@ int substr(char* str1, char* str2, int** result) {
     *result = (int*)malloc(count * sizeof(int));
     int j = 0;
     for (int i = 0; i <= str2_len - str1_len; i++) {
-        if (strncmp(str_ptr++, str1, str1_len) == 0) {
+        if (strncmp(str_ptr++, str1, str1_len) == 0)
             (*result)[j++] = i;
-        }
     }
 
     return count;

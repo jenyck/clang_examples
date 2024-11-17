@@ -9,6 +9,6 @@ void printTimeInfo(time_t time) {
 }
 
 int main() {
-	printTimeInfo(0);
-	return 0;
+    printTimeInfo(0);
+    return 0;
 }

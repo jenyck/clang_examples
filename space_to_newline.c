@@ -1,25 +1,16 @@
-#include <string.h>
 #include <stdio.h>
-#include <ctype.h>
+#include <locale.h>
+#include <wchar.h>
 
 int main() {
-    char sentence[200];
-    char* sentence_ptr = sentence;
-    
-    scanf("%s", sentence);
-    
-    char word[200];
-    char* word_ptr = word;
-    for (sentence_ptr; *sentence_ptr != '\0'; sentence_ptr++) {
-        if (isspace(*sentence_ptr)) {
-            puts(word);
-        }
-        else {
-            *word_ptr++ = *sentence_ptr;
-        }
+    setlocale(LC_CTYPE, "");
+    wchar_t sentence[201];
+    fgetws(sentence, sizeof(sentence)/sizeof(wchar_t), stdin);
+    wchar_t* buffer;
+    wchar_t* word = wcstok(sentence, L" ,.-", &buffer);
+    while (word != NULL) {
+        wprintf(L"%ls\n",word);
+        word = wcstok(NULL, L" ,.-", &buffer);
     }
-    *word_ptr = '\0';
-    puts(word);
-    
     return 0;
 }
