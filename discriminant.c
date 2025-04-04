@@ -5,8 +5,7 @@ float discriminant(float a, float b, float c) {
 }
 
 int main() {
-    float a, b, c;
-    float d;
+    float a, b, c, d;
     scanf("%f %f %f", &a, &b, &c);
     d = discriminant(a, b, c);
     printf("%f\n", d);

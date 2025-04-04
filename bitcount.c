@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* prints the number of zero bits in given positive integer */
 int main() {
     unsigned int n;
     scanf("%d", &n);

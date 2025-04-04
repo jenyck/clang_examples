@@ -2,7 +2,13 @@
 
 int main() {
     int f = 100;
-    int res;
+    /*
+     * There was only int res; without initialising it as a zero.
+     * Very interesting: didn't notice when it compiled by gcc correctly,
+     * but when compiled by tcc, the res variable wasn't initialised
+     * by zero value, instead, it was initialised as a random number.
+     */
+    int res = 0;
     for (int i = 1; i <= 10; i++) {
     	res += f - i;
     	fprintf(stderr, "%s:%s:%d: res=%d\n",
